@@ -14,7 +14,6 @@ This repository contains my personal dotfiles and editor configuration. It's int
 
 ## What’s in this repo
 
-- [`cava`](https://github.com/karlstav/cava/) — console-based audio visualizer.
 - [`git`](https://git-scm.com/) — version control system.
 - [`kanata`](https://github.com/jtroo/kanata/) — keyboard remapper.
 - [`keyboards`](./keyboards/) — settings and notes for the keyboards I own.
