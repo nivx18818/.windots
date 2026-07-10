@@ -151,6 +151,7 @@ return {
         textobjects_select.select_textobject("@class.inner", "textobjects")
       end)
     end,
+  },
   {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
