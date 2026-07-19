@@ -35,10 +35,10 @@
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       }
     },
-    // "figma-mcp-go": {
-    //   "type": "local",
-    //   "command": ["npx", "-y", "@vkhanhqui/figma-mcp-go@latest"]
-    // },
+    "figma-mcp-go": {
+      "type": "local",
+      "command": ["npx", "@vkhanhqui/figma-mcp-go@latest"]
+    },
     "playwright": {
       "type": "local",
       "command": ["npx", "@playwright/mcp@latest"]
