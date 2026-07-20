@@ -1,0 +1,267 @@
+[bar.default]
+capsule_radius = 0
+start = [ "clock", "cpu", "temp", "ram", "media" ]
+center = [ "workspaces" ]
+end = [
+  "audio_visualizer",
+  "tray",
+  "notifications",
+  "battery",
+  "network",
+  "volume",
+  "input_volume",
+  "brightness",
+  "session"
+]
+margin_ends = 0
+padding = 12
+radius = 0
+scale = 0.85
+shadow = false
+thickness = 24
+widget_spacing = 8
+
+[bar.default.dead_zone]
+command = "noctalia msg notification-clear-active"
+middle_command = "noctalia msg volume-mute"
+scroll_down_command = "noctalia msg volume-down 2"
+scroll_up_command = "noctalia msg volume-up 2"
+
+[battery]
+warning_threshold = 25
+
+[brightness]
+sync_all_monitors = true
+
+[control_center]
+sidebar_section = "none"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+[desktop_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
+
+[desktop_widgets.widget]
+
+[dock]
+active_monitor_only = true
+auto_hide = true
+background_opacity = 1
+enabled = true
+icon_size = 24
+launcher_icon = "background"
+launcher_position = "start"
+radius = 0
+reserve_space = false
+shadow = false
+
+[keybinds]
+down = [ "Down", "Ctrl+n" ]
+left = [ "Left", "Ctrl+h" ]
+right = [ "Right", "Ctrl+l" ]
+up = [ "Up", "Ctrl+p" ]
+
+[location]
+address = "Hanoi"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
+
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+box_height = 70.0
+box_width = 400.0
+cx = 854.0
+cy = 948.0
+output = "DP-1"
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+input_opacity = 1.0
+input_radius = 6.0
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_password_hint = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 70.0
+box_width = 400.0
+cx = 854.0
+cy = 948.0
+output = "eDP-1"
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+input_opacity = 1.0
+input_radius = 6.0
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_password_hint = true
+
+[nightlight]
+enabled = true
+force = true
+temperature_day = 4800
+temperature_night = 4700
+
+[notification]
+background_opacity = 1
+border = false
+
+[osd]
+background_opacity = 1
+border = false
+position = "top_right"
+
+[plugins]
+enabled = [ "noctalia/translator", "nightwatch75/file-search" ]
+
+[plugin_settings."noctalia/translator"]
+target_lang = "vi"
+
+[plugin_settings."nightwatch75/file-search"]
+exclude_dirs = ".git, node_modules, .cache, .venv"
+panel_open_near_click = false
+panel_placement = "floating"
+panel_position = "center"
+show_hidden = true
+
+[shell]
+app_icon_color = "primary"
+button_borders = false
+corner_radius_scale = 0.0
+font_family = "Maple Mono"
+polkit_agent = true
+screen_time_enabled = true
+ui_scale = 1.0500000081956387
+
+[shell.animation]
+speed = 2.0000000298023224
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.launcher]
+categories = false
+session_search = true
+
+[shell.launcher.providers.emoji]
+prefix = ""
+
+[shell.launcher.providers.session]
+global = true
+
+[shell.panel]
+clipboard_placement = "attached"
+open_near_click_control_center = true
+shadow = false
+
+[shell.shadow]
+alpha = 0.0
+
+[theme]
+builtin = "Kanagawa"
+community_palette = "Vesper"
+source = "community"
+
+[theme.templates]
+builtin_ids = [ "btop" ]
+
+[wallpaper]
+edge_smoothness = 0.0
+transition = [ "disc" ]
+transition_on_startup = true
+
+[wallpaper.default]
+path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+
+[wallpaper.last]
+path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+
+[weather]
+enabled = false
+
+[widget.audio_visualizer]
+centered = false
+mirrored = false
+
+[widget.battery]
+show_label = false
+
+[widget.brightness]
+scroll_step = 2
+show_label = false
+
+[widget.clock]
+format = "{:%H:%M %a, %b %d}"
+
+[widget.control-center]
+enabled = true
+
+[widget.cpu]
+show_label = false
+
+[widget.cpu-temp]
+show_label = false
+stat = "cpu_temp"
+
+[widget.input_volume]
+scroll_step = 2
+show_label = false
+
+[widget.media]
+hide_album_art = true
+hide_when_no_media = true
+title_scroll = "on_hover"
+
+[widget.network]
+show_label = false
+
+[widget.ram]
+show_label = false
+
+[widget.sysmon]
+show_label = false
+stat = "gpu_usage"
+
+[widget.temp]
+show_label = false
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+scroll_step = 2
+show_label = false
+
+[widget.workspaces]
+empty_color = "on_primary"
+hide_when_empty = true
+labels_only_when_occupied = true
+occupied_color = "on_primary"
