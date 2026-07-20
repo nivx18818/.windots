@@ -25,7 +25,6 @@ This repository contains my personal dotfiles and editor configuration. It's int
 - [`powershell`](https://github.com/PowerShell/PowerShell) — command-line shell and scripting language.
 - [`raycast`](https://www.raycast.com) — multi-platform application launcher and productivity tool.
 - [`vscode`](https://github.com/microsoft/vscode) — AI code editor.
-- [`wezterm`](https://github.com/wezterm/wezterm) — terminal emulator.
 - [`windhawk`](https://github.com/windhawk/windhawk) — Windows customization tool.
 - [`windows-terminal`](https://github.com/microsoft/terminal) — terminal application for Windows.
 - [`yasb`](https://github.com/amnweb/yasb) — Windows status bar.
