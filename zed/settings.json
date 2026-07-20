@@ -45,27 +45,32 @@
       // "editor.highlighted_line.background": "#00000000",
       // "terminal.background": "#00000000",
 
+      "title_bar.inactive_background": "#101010",
+
       "terminal.foreground": "#ffffff",
       "terminal.ansi.white": "#ffffff",
       "terminal.ansi.green": "#99FFE4",
       "terminal.ansi.yellow": "#FFC799",
-
-      "syntax": {
-        "comment": {
-          "font_style": "italic",
-        },
-        "comment.doc": {
-          "font_style": "italic",
-        },
+    },
+  },
+  "experimental.theme_overrides": {
+    "syntax": {
+      "comment": {
+        "font_style": "italic",
+      },
+      "comment.doc": {
+        "font_style": "italic",
       },
     },
   },
+  "window_decorations": "server",
   "title_bar": {
     "show_branch_status_icon": false,
     "show_branch_name": false,
     "show_project_items": false,
     "show_user_picture": false,
     "show_user_menu": false,
+    "show_sign_in": false,
   },
   "tab_bar": {
     "show": false,
@@ -77,6 +82,11 @@
     "experimental.show": false,
   },
   "project_panel": {
+    "auto_open": {
+      "on_create": false,
+      "on_drop": false,
+      "on_paste": false,
+    },
     "default_width": 300,
     "hide_root": true,
     "auto_fold_dirs": false,
@@ -97,12 +107,6 @@
     "default_height": 500,
     "scrollbar": {
       "show": "never",
-    },
-    "shell": {
-      "with_arguments": {
-        "program": "pwsh",
-        "args": ["-NoLogo"],
-      },
     },
   },
   "file_finder": {
@@ -186,7 +190,7 @@
   },
   "vim": {
     "highlight_on_yank_duration": 200,
-    "use_regex_search": true,
+    "use_regex_search": false,
     "use_smartcase_find": true,
     "use_system_clipboard": "always",
   },
@@ -206,6 +210,9 @@
       "formatter": "prettier",
     },
     "C++": {
+      "tab_size": 4,
+    },
+    "Python": {
       "tab_size": 4,
     },
   },
