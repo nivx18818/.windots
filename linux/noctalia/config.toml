@@ -1,31 +1,24 @@
+[audio]
+enable_overdrive = true
+
 [bar.default]
-capsule_radius = 0
 start = [ "clock", "cpu", "temp", "ram", "media" ]
 center = [ "workspaces" ]
-end = [
-  "audio_visualizer",
-  "tray",
-  "notifications",
-  "battery",
-  "network",
-  "volume",
-  "input_volume",
-  "brightness",
-  "session"
-]
+end = [ "audio_visualizer", "tray", "notifications", "battery", "network", "volume", "input_volume", "brightness", "bar" ]
 margin_ends = 0
 padding = 12
 radius = 0
+capsule_radius = 0
 scale = 0.85
 shadow = false
 thickness = 24
 widget_spacing = 8
 
-[bar.default.dead_zone]
-command = "noctalia msg notification-clear-active"
-middle_command = "noctalia msg volume-mute"
-scroll_down_command = "noctalia msg volume-down 2"
-scroll_up_command = "noctalia msg volume-up 2"
+[bar.default.dead_zone.actions]
+left = "exec noctalia msg notification-clear-active"
+middle = "exec noctalia msg volume-mute"
+scroll_down = "exec noctalia msg volume-down 2"
+scroll_up = "exec noctalia msg volume-up 2"
 
 [battery]
 warning_threshold = 25
@@ -79,8 +72,8 @@ major_interval = 4
 visible = true
 
 [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-box_height = 70.0
-box_width = 400.0
+box_height = 201.0
+box_width = 720.0
 cx = 854.0
 cy = 948.0
 output = "DP-1"
@@ -91,32 +84,14 @@ type = "login_box"
 background_color = "surface_variant"
 background_opacity = 0.88
 background_radius = 12.0
+center_password_text = false
 input_opacity = 1.0
 input_radius = 6.0
+layout = "compact"
 show_caps_lock = true
 show_keyboard_layout = true
 show_login_button = true
-show_password_hint = true
-
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-box_height = 70.0
-box_width = 400.0
-cx = 854.0
-cy = 948.0
-output = "eDP-1"
-rotation = 0.0
-type = "login_box"
-
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-input_opacity = 1.0
-input_radius = 6.0
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_password_hint = true
+show_session_buttons = true
 
 [nightlight]
 enabled = true
@@ -133,18 +108,11 @@ background_opacity = 1
 border = false
 position = "top_right"
 
-[plugins]
-enabled = [ "noctalia/translator", "nightwatch75/file-search" ]
-
 [plugin_settings."noctalia/translator"]
 target_lang = "vi"
 
-[plugin_settings."nightwatch75/file-search"]
-exclude_dirs = ".git, node_modules, .cache, .venv"
-panel_open_near_click = false
-panel_placement = "floating"
-panel_position = "center"
-show_hidden = true
+[plugins]
+enabled = [ "noctalia/translator", "noctalia/timer" ]
 
 [shell]
 app_icon_color = "primary"
@@ -153,7 +121,6 @@ corner_radius_scale = 0.0
 font_family = "Maple Mono"
 polkit_agent = true
 screen_time_enabled = true
-ui_scale = 1.0500000081956387
 
 [shell.animation]
 speed = 2.0000000298023224
@@ -163,7 +130,6 @@ auto_sync = true
 
 [shell.launcher]
 categories = false
-session_search = true
 
 [shell.launcher.providers.emoji]
 prefix = ""
@@ -172,7 +138,7 @@ prefix = ""
 global = true
 
 [shell.panel]
-clipboard_placement = "attached"
+clipboard_placement = "floating"
 open_near_click_control_center = true
 shadow = false
 
@@ -211,12 +177,18 @@ enabled = false
 centered = false
 mirrored = false
 
+[widget.bar]
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
+
 [widget.battery]
 show_label = false
 
 [widget.brightness]
-scroll_step = 2
 show_label = false
+
+[widget.brightness.actions]
+scroll_down = "brightness-down 2%"
 
 [widget.clock]
 format = "{:%H:%M %a, %b %d}"
@@ -227,12 +199,7 @@ enabled = true
 [widget.cpu]
 show_label = false
 
-[widget.cpu-temp]
-show_label = false
-stat = "cpu_temp"
-
 [widget.input_volume]
-scroll_step = 2
 show_label = false
 
 [widget.media]
@@ -242,6 +209,7 @@ title_scroll = "on_hover"
 
 [widget.network]
 show_label = false
+vpn_status = "both"
 
 [widget.ram]
 show_label = false
@@ -257,7 +225,6 @@ show_label = false
 drawer = true
 
 [widget.volume]
-scroll_step = 2
 show_label = false
 
 [widget.workspaces]
