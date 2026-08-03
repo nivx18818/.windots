@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Zen
+Description=Minimal scramble-reveal text theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/zen
+ScriptFile=/usr/share/plymouth/themes/zen/zen.script

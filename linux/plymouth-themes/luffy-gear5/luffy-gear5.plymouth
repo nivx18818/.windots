@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Luffy Gear 5
+Description=Luffy Gear 5 theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/luffy-gear5/frames
+ScriptFile=/usr/share/plymouth/themes/luffy-gear5/luffy-gear5.script

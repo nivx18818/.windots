@@ -1,0 +1,26 @@
+# cycle through all images
+FRAME_COUNT = 36;
+FRAME_DELAY = 2;
+FRAME_SCALE = 0.75;
+
+for (i = 0; i < FRAME_COUNT; i++) {
+  frame_number = i + 1;
+  frame = image("frame_" + frame_number + ".png");
+  animation_frames[i] = frame.scale(frame.getwidth() * FRAME_SCALE, frame.getheight() * FRAME_SCALE);
+}
+
+animation_sprite = sprite();
+
+# place images in the center
+animation_sprite.setx(window.getx() + window.getwidth(0) / 2 - animation_frames[0].getwidth() / 2);
+animation_sprite.sety(window.gety() + window.getheight(0) / 2 - animation_frames[0].getheight() / 2);
+
+refresh_count = 0;
+
+fun refresh_callback() {
+  current_frame_index = math.int(refresh_count / FRAME_DELAY) % FRAME_COUNT;
+  animation_sprite.setimage(animation_frames[current_frame_index]);
+  refresh_count++;
+}
+
+plymouth.setrefreshfunction(refresh_callback);

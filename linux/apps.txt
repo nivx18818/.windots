@@ -4,6 +4,7 @@
 # src|dst|method
 linux/mangohud|~/.config/MangoHud|
 linux/noctalia||
+linux/plymouth-themes|/usr/share/plymouth/themes|merge
 shared/codesnap||
 shared/git||
 shared/kanata||

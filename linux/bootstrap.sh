@@ -61,16 +61,20 @@ while IFS='|' read -r src dst method; do
     case "$method" in
         symlink)
             ln -sfn "$src" "$dst"
-            DOTFILES_ROOT="/a/b/" \
-            src="/a/b/c" \
-            dst="d" \
             printf "[LINK]  %-20s -> %s\n" "${src#$DOTFILES_ROOT/}" "$dst"
             ;;
 
         copy)
             rm -rf "$dst"
+            mkdir -p "$(dirname "$dst")"
             cp -a "$src" "$dst"
             printf "[COPY]  %-20s -> %s\n" "${src#$DOTFILES_ROOT/}" "$dst"
+            ;;
+    
+        merge)
+            mkdir -p "$dst"
+            cp -a "$src/." "$dst/"
+            printf "[MERGE] %-20s -> %s\n" "${src#$DOTFILES_ROOT/}" "$dst"
             ;;
 
         *)

@@ -1,0 +1,90 @@
+# ZEN Plymouth theme
+
+# Unicode-safe scramble animation using one sprite per visible character.
+
+# --- Target ---
+
+target = ["Z", "Ξ", "N"];
+target_length = 3;
+
+# --- ASCII and Unicode pool ---
+charset = [
+  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+  "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+  "U", "V", "W", "X", "Y", "Z",
+  "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+  # Greek
+  "Ξ", "Σ", "Δ", "Ω", "Φ", "Λ",
+  # Japanese Katakana
+  "ア", "イ", "ウ", "エ", "オ",
+  "カ", "キ", "ク", "ケ", "コ",
+  "サ", "シ", "ス", "セ", "ソ",
+  "タ", "チ", "ツ", "テ", "ト",
+  # Japanese Hiragana
+  "あ", "い", "う", "え", "お",
+  "か", "き", "く", "け", "こ",
+  # Japanese Kanji
+  "静", "光", "夢", "空", "月", "星", "夜", "零"
+];
+charset_length = 80;
+
+# Font with Greek and Japanese glyph coverage.
+font = "Sans 40";
+
+frame = 0;
+initial_scramble = 20;
+lock_delay = 10;
+
+# Horizontal distance between character centers.
+
+cell_width = 90;
+
+# --- Background ---
+
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+# --- Character sprites ---
+
+for (i = 0; i < target_length; i++) {
+  image[i] = Image.Text();
+  sprite[i] = Sprite();
+}
+
+fun random_char() {
+  index = Math.Int(Math.Random() * charset_length);
+  return charset[index];
+}
+
+fun position_characters() {
+  center_x = Window.GetX() + Window.GetWidth() / 2;
+  center_y = Window.GetY() + Window.GetHeight() / 2;
+  
+  for (i = 0; i < target_length; i++) {
+    offset_x = (i - 1) * cell_width;
+
+    sprite[i].SetX(center_x + offset_x - image[i].GetWidth() / 2);
+    sprite[i].SetY(center_y - image[i].GetHeight() / 2);
+    sprite[i].SetZ();
+  }
+}
+
+fun refresh_callback() {
+  for (i = 0; i < target_length; i++) {
+    lock_frame = initial_scramble + i * lock_delay;
+
+    if (frame >= lock_frame)
+     	displayed_character = target[i];
+    else
+     	displayed_character = random_char();
+
+    image[i] = Image.Text(displayed_character, 1, 1, 1, 1, font);
+    sprite[i].SetImage(image[i]);
+  }
+  
+  position_characters();
+  frame++;
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
