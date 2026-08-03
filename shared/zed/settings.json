@@ -10,12 +10,12 @@
   // Appearance
   "ui_font_family": "DankMono Nerd Font",
   "buffer_font_family": "DankMono Nerd Font",
-  "buffer_font_features": {
-    "calt": true,
-  },
+  "markdown_preview_font_family": "Maple Mono",
+  "markdown_preview_code_font_family": "Maple Mono",
   "ui_font_size": 18,
   "agent_buffer_font_size": 18,
   "git_commit_buffer_font_size": 18,
+  "markdown_preview_font_size": 20,
   "buffer_font_size": 18,
   "buffer_line_height": {
     "custom": 2,
@@ -91,6 +91,7 @@
     "hide_root": true,
     "auto_fold_dirs": false,
     "starts_open": false,
+    "auto_reveal_entries": false,
     "sticky_scroll": false,
     "scrollbar": {
       "show": "never",
@@ -105,6 +106,11 @@
   },
   "terminal": {
     "default_height": 500,
+    "cursor_shape": "bar",
+    "font_family": "Dank Mono",
+    "font_features": {
+      "liga": false,
+    },
     "scrollbar": {
       "show": "never",
     },
@@ -112,6 +118,14 @@
   "file_finder": {
     "modal_max_width": "small",
   },
+  "file_scan_inclusions": [
+    ".env*",
+    "apps/api/.env*",
+    "apps/evaluator/.env*",
+    "apps/web/.env*",
+    "packages/*/.env*",
+    "docs/*",
+  ],
   "scrollbar": {
     "show": "never",
   },
@@ -130,6 +144,7 @@
     "runnables": false,
     "min_line_number_digits": 0,
   },
+  "cursor_blink": true,
   "hide_mouse": "on_typing_and_action",
 
   // Behaviors
@@ -217,4 +232,3 @@
     },
   },
 }
-

@@ -7,9 +7,9 @@
 // from the command palette.
 [
   {
-    "context": "vim_mode == normal || vim_mode == visual || EmptyPane || SharedScreen",
+    "context": "vim_mode == normal || vim_mode == visual || EmptyPane || SharedScreen || (ProjectPanel && !editing)",
     "bindings": {
-      "g s": "vim::PushAddSurrounds",
+      "g s":["vim::PushAddSurrounds", {}],
 
       "space": null,
       "space space": "file_finder::Toggle",
@@ -43,6 +43,7 @@
 
       "s": "vim::HelixJumpToWord",
 
+      "w": "vim::NextSubwordStart",
       "b": "vim::PreviousSubwordStart",
       "e": "vim::NextSubwordEnd",
       "g e": "vim::PreviousSubwordEnd",
@@ -63,11 +64,7 @@
     "bindings": {
       "Y": ["workspace::SendKeystrokes", "y g _"],
 
-      // Temporary alternative for https://github.com/zed-industries/zed/discussions/57799
-      "space v g": "editor::SelectAll",
       "space y g": ["workspace::SendKeystrokes", ": % y enter"],
-      "space c g": ["workspace::SendKeystrokes", "g g c G"],
-      "space d g": ["workspace::SendKeystrokes", "g g d G"],
 
       "space v l": ["workspace::SendKeystrokes", "_ v g _"],
       "space y l": ["workspace::SendKeystrokes", "_ y g _"],
@@ -75,6 +72,24 @@
       "space d l": ["workspace::SendKeystrokes", "_ d g _"],
     },
   },
+  {
+    "context": "vim_operator == i",
+    "bindings": {
+      "g": "vim::EntireFile",
+    }
+  },
+  {
+    "context": "vim_operator == d",
+    "bindings": {
+      "m": ["workspace::SendKeystrokes", ": d e l m space"],
+    }
+  },
+  // {
+  //   "context": "vim_operator == y",
+  //   "bindings": {
+  //     "g": ["workspace::SendKeystrokes", ": % y enter"]
+  //   },
+  // },
   {
     "context": "!menu && vim_mode == visual",
     "bindings": {
@@ -103,7 +118,8 @@
     "bindings": {
       "a": "project_panel::NewFile",
       "A": "project_panel::NewDirectory",
-      "d": "project_panel::Delete",
+      "d": "project_panel::Trash",
+      "D": "project_panel::Delete",
       "y": "project_panel::Copy",
       "Y": "workspace::CopyPath",
       "p": "project_panel::Paste",
@@ -111,6 +127,8 @@
       "r": "project_panel::Rename",
       "R": "project_panel::RevealInFileManager",
       "z": "project_panel::CollapseAllEntries",
+      "o": "project_panel::Open",
+      "backspace": "pane::CloseActiveItem",
     },
   },
   {
@@ -119,7 +137,6 @@
       "m": "vim::PushMark",
       "g m": ["workspace::SendKeystrokes", "`"],
       "g M": ["workspace::SendKeystrokes", "'"],
-      "space d m": ["workspace::SendKeystrokes", ": d e l m space"],
 
       // +file/find
       "space f f": "file_finder::Toggle",
@@ -132,7 +149,8 @@
       // +search
       "space s s": "project_symbols::Toggle",
       "space s o": "outline::Toggle",
-      "space s g": "pane::DeploySearch",
+      "space s g": "text_finder::Toggle",
+      "space s p": "pane::DeploySearch",
 
       // +tabs
       "space tab d": "pane::CloseAllItems",
@@ -165,6 +183,7 @@
       "space c a": "editor::ToggleCodeActions",
       "space c o": "editor::OrganizeImports",
       "space c f": "editor::Format",
+      "space c F": "editor::FormatSelections",
       "space c s": ["task::Spawn", { "task_name": "CodeSnap" }],
 
       // +diagnostics
@@ -174,6 +193,8 @@
 
       // +git
       "space g d": "editor::ToggleSelectedDiffHunks",
+      "space g n": "editor::GoToHunk",
+      "space g N": "editor::GoToPreviousHunk",
       "space g u": "git::Restore",
 
       // +text
@@ -201,7 +222,7 @@
     },
   },
   {
-    "context": "!Terminal && ((menu && !showing_completions) || EmptyPane || SharedScreen || vim_mode == normal || vim_mode == visual)",
+    "context": "!Terminal && ((menu && !showing_completions && !editing) || EmptyPane || SharedScreen || vim_mode == normal || vim_mode == visual)",
     "bindings": {
       // +ui
       "space u h": "workspace::ToggleLeftDock",
@@ -229,15 +250,10 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-t": null,
-      "ctrl-t n": "workspace::NewTerminal",
-      "ctrl-t d": "pane::CloseActiveItem",
-      "ctrl-t h": "pane::ActivatePreviousItem",
-      "ctrl-t l": "pane::ActivateNextItem",
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown",
-      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-t": "workspace::NewTerminal",
+      "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-[": "pane::ActivatePreviousItem",
+      "ctrl-]": "pane::ActivateNextItem",
     },
   },
   {
@@ -253,6 +269,22 @@
     },
   },
   {
+    "context": "MarkdownPreview",
+    "bindings": {
+      "h": ["workspace::SendKeystrokes", "left"],
+      "j": "markdown::ScrollDown",
+      "k": "markdown::ScrollUp",
+      "l": ["workspace::SendKeystrokes", "right"],
+      "d": "markdown::ScrollPageDown",
+      "u": "markdown::ScrollPageUp",
+      "f": ["workspace::SendKeystrokes", "pagedown"],
+      "b": ["workspace::SendKeystrokes", "pageup"],
+      "g": "markdown::ScrollToTop",
+      "G": "markdown::ScrollToBottom",
+      "q": "markdown::CloseAndReturnToEditor",
+    },
+  },
+  {
     "context": "",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
@@ -264,4 +296,3 @@
     },
   },
 ]
-
