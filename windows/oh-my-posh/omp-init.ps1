@@ -1,0 +1,1 @@
+$env:POSH_SESSION_ID = "6ea53475-1df3-4bc4-b012-38fae163c337";& 'C:\Users\Admin\AppData\Local\oh-my-posh\init.1974451251267943150.ps1'
