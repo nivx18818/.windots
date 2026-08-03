@@ -1,0 +1,10 @@
+# default dst: ~/.config/<basename(src)>
+# default method: symlink
+#
+# src|dst|method
+linux/mangohud|~/.config/MangoHud|
+linux/noctalia||
+shared/codesnap||
+shared/git||
+shared/kanata||
+shared/nvim||

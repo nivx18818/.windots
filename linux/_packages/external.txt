@@ -1,0 +1,6 @@
+# Antigravity CLI
+curl -fsSL https://antigravity.google/cli/install.cmd -o install.cmd && install.cmd && del install.cmd
+
+# Codex CLI
+# **Note**: Codex CLI installed via pacman can't use remote desktop feature.
+curl -fsSL https://chatgpt.com/codex/install.sh | sh

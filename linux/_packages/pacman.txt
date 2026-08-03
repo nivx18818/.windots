@@ -1,0 +1,41 @@
+# CachyOS's gaming packages
+# - The `cachyos-gaming-meta` meta-package includes many gaming-related libraries.
+# - The `cachyos-gaming-applications` meta-package includes the following:
+#   - Tools: Gamescope, GOverlay, MangoHud
+#   - Launchers:  Steam, Heroic Games Launcher, Lutris, Faugus Launcher
+cachyos-gaming-meta
+cachyos-gaming-applications
+
+# Compositor and Shell
+niri
+noctalia
+noctalia-greeter
+
+# Apps
+bitwarden
+brave-bin
+kitty
+nautilus
+neovim
+obs-studio
+onlyoffice-bin
+opencode
+protonup-qt
+telegram-desktop
+vesktop
+zed
+
+# Tools
+cliphist
+docker
+docker-compose
+fzf
+github-cli
+grim
+slurp
+strongswan
+sushi
+tesseract
+tesseract-data-eng
+wl-clipboard
+zsh

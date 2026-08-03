@@ -1,0 +1,2 @@
+# Tools
+fcitx5-lotus-bin
