@@ -25,7 +25,13 @@ paru -S --needed $(grep -vE '^\s*(#|$)' "$SCRIPT_DIR/_packages/aur.txt")
 # Run any custom installation commands (e.g., rustup, nvm, etc.)
 while read -r cmd; do
     [[ -z "$cmd" || "$cmd" =~ ^# ]] && continue
-    eval "$cmd"
+
+    tmpdir=$(mktemp -d)
+    (
+        cd "$tmpdir"
+        eval "$cmd"
+    )
+    rm -rf "$tmpdir"
 done < "$SCRIPT_DIR/_packages/external.txt"
 
 # ==========================================
