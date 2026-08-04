@@ -1,7 +1,10 @@
 # Plymouth Themes
 
 - Official docs: https://www.freedesktop.org/wiki/Software/Plymouth/Scripts/
-- Reference: https://github.com/adi1090x/plymouth-themes/blob/master/template/template.script
+- Reference: https://github.com/adi1090x/plymouth-themes/blob/master/template
+- More themes here:
+  - https://github.com/adi1090x/plymouth-themes
+  - https://www.gnome-look.org/browse?cat=108&ord=latest
 
 ## Set theme
 

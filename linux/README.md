@@ -36,3 +36,34 @@ Run `bootstrap.sh` for app installation and config setup.
 chmod +x linux/bootstrap.sh
 linux/bootstrap.sh
 ```
+
+## Font and Cursor
+
+> [!INFO]
+>
+> Use `nwg-look` for easier GTK settings tweaking.
+
+## Fonts
+
+### Installation
+
+Place fonts in `~/.local/share/fonts` then run:
+
+```bash
+fc-cache -fv
+```
+
+### Awesome fonts
+
+- Maple Mono: https://github.com/subframe7536/maple-font.
+
+## Cursors
+
+### Installation
+
+Place cursor themes in `/usr/share/icons` then config your DE, WM.
+
+### Awesome cursor themes
+
+- Bibata: https://github.com/ful1e5/Bibata_Cursor.
+- Google Dot: https://github.com/ful1e5/Google_Cursor.

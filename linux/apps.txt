@@ -5,6 +5,7 @@
 linux/keyd||
 linux/mangohud|~/.config/MangoHud|
 linux/niri||
+linux/noctalia-greeter|/var/lib/noctalia-greeter|copy
 linux/noctalia||
 linux/plymouth-themes|/usr/share/plymouth/themes|merge
 linux/zsh/etc|/etc/zsh|copy
