@@ -1,2 +1,7 @@
+# Apps
+beekeeper-studio-bin
+google-chrome
+
 # Tools
 fcitx5-lotus-bin
+anifetch-cli

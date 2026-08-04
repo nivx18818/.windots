@@ -24,20 +24,27 @@ opencode
 protonup-qt
 telegram-desktop
 vesktop
+vlc
 zed
 
 # Tools
+bat
+btop
 cliphist
+codesnap
 docker
 docker-compose
 fzf
 github-cli
 grim
 plymouth
+ripgrep
 slurp
+starship
 strongswan
 sushi
 tesseract
 tesseract-data-eng
 wl-clipboard
+zoxide
 zsh
