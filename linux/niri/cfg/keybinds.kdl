@@ -1,0 +1,127 @@
+binds {
+  // ────────────── Keybindings ──────────────
+  // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+  // ─── noctalia-shell keybinds ───
+  // https://docs.noctalia.dev/getting-started/keybinds/
+
+  // ─── Applications ───
+  Mod+Return  { spawn "kitty"; }
+  Mod+Space   { spawn-sh "noctalia msg panel-toggle launcher"; }
+  Mod+B       { spawn "brave"; }
+  Mod+Shift+B { spawn "brave" "--incognito"; }
+  Mod+E       { spawn "nautilus"; }
+  Mod+Period  { spawn-sh "noctalia msg panel-toggle launcher '/emo '"; }
+  Mod+A       { spawn-sh "noctalia msg panel-toggle launcher '/tr '"; }
+  Mod+Shift+A { spawn-sh "noctalia msg panel-toggle launcher \"/tr $(noctalia msg clipboard-text)\""; }
+  Mod+V       { spawn-sh "noctalia msg panel-toggle clipboard"; }
+
+  // ─── Media Controls ───
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up 2"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down 2"; }
+  XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
+  XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+  XF86AudioPrev        allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+  XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media play"; }
+  XF86AudioPause       allow-when-locked=true { spawn-sh "noctalia msg media pause"; }
+
+  // ─── Brightness Controls ───
+  XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up 2"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down 2"; }
+
+  // ─── Window Movement and Focus ───
+  Mod+Q { close-window; }
+
+  Mod+H { focus-column-left; }
+  Mod+J { focus-workspace-down; }
+  Mod+K { focus-workspace-up; }
+  Mod+L { focus-column-right; }
+
+  Mod+Ctrl+H { move-column-left; }
+  Mod+Ctrl+J { move-column-to-workspace-down; }
+  Mod+Ctrl+K { move-column-to-workspace-up; }
+  Mod+Ctrl+L { move-column-right; }
+
+  Mod+Home      { focus-column-first; }
+  Mod+End       { focus-column-last; }
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Shift+H { focus-monitor-left; }
+  Mod+Shift+J { focus-monitor-down; }
+  Mod+Shift+K { focus-monitor-up; }
+  Mod+Shift+L { focus-monitor-right; }
+
+  Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+  // ─── Workspace Switching ───
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+Shift+WheelScrollDown      { focus-column-right; }
+  Mod+Shift+WheelScrollUp        { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+
+  Mod+Ctrl+1 { move-column-to-workspace 1; }
+  Mod+Ctrl+2 { move-column-to-workspace 2; }
+  Mod+Ctrl+3 { move-column-to-workspace 3; }
+  Mod+Ctrl+4 { move-column-to-workspace 4; }
+  Mod+Ctrl+5 { move-column-to-workspace 5; }
+  Mod+Ctrl+6 { move-column-to-workspace 6; }
+  Mod+Ctrl+7 { move-column-to-workspace 7; }
+  Mod+Ctrl+8 { move-column-to-workspace 8; }
+  Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+  Super+Tab { focus-workspace-previous; }
+
+  // ─── Layout Controls ───
+  Mod+F           { maximize-column; }
+  Mod+R           { switch-preset-column-width; }
+  Mod+Shift+R     { switch-preset-column-width-back; }
+  Mod+C           { center-column; }
+  Mod+MouseMiddle { center-column; }
+  Mod+Ctrl+C      { center-visible-columns; }
+  Mod+Minus       { set-column-width "-10%"; }
+  Mod+Equal       { set-column-width "+10%"; }
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  // ─── Modes ───
+  Mod+T      { toggle-window-floating; }
+  Mod+Ctrl+F { toggle-windowed-fullscreen; }
+  F11        { fullscreen-window; }
+
+  // ─── Screenshots ───
+  Mod+S       { screenshot-window; }
+  Mod+Shift+S { screenshot show-pointer=false; }
+  Mod+Ctrl+S  { screenshot-screen; }
+
+  // ─── Emergency Escape Key ───
+  // Use this when a fullscreen app blocks your keybinds.
+  // It disables any active keyboard shortcut inhibitor, restoring control.
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // ─── Exit / Power ───
+  Ctrl+Alt+Delete   { quit; } // Also quits Niri
+  Mod+Shift+P       { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
+  Mod+O             repeat=false { toggle-overview; }
+  Super+Alt+L       { spawn-sh "noctalia msg session lock"; }
+  Super+Alt+Shift+L { spawn-sh "noctalia msg session lock-and-suspend"; }
+}

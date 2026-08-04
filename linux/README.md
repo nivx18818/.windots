@@ -31,3 +31,8 @@ Open Rufus:
 ## Bootstrap
 
 Run `bootstrap.sh` for app installation and config setup.
+
+```bash
+chmod +x linux/bootstrap.sh
+linux/bootstrap.sh
+```

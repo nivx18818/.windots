@@ -17,6 +17,7 @@ brave-bin
 kitty
 nautilus
 neovim
+nwg-look
 obs-studio
 onlyoffice-bin
 opencode
@@ -32,6 +33,7 @@ docker-compose
 fzf
 github-cli
 grim
+plymouth
 slurp
 strongswan
 sushi

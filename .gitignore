@@ -8,3 +8,5 @@ cava/shaders
 oh-my-posh/omp-init.ps1
 .env*
 !.env.example
+
+linux/zsh/home/plugins

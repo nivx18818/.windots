@@ -3,6 +3,12 @@
 - Official docs: https://www.freedesktop.org/wiki/Software/Plymouth/Scripts/
 - Reference: https://github.com/adi1090x/plymouth-themes/blob/master/template/template.script
 
+## Set theme
+
+```bash
+sudo plymouth-set-default-theme -R <theme_name>
+```
+
 ## Combine 2 themes
 
 You can follow this template (read docs for further customization):

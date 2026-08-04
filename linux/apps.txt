@@ -2,10 +2,10 @@
 # default method: symlink
 #
 # src|dst|method
+linux/keyd||
 linux/mangohud|~/.config/MangoHud|
+linux/niri||
 linux/noctalia||
 linux/plymouth-themes|/usr/share/plymouth/themes|merge
-shared/codesnap||
-shared/git||
-shared/kanata||
-shared/nvim||
+linux/zsh/etc|/etc/zsh|copy
+linux/zsh/home|~/.config/zsh|

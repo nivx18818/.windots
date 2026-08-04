@@ -1,0 +1,22 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = '''
+$directory$git_branch
+$character'''
+
+[directory]
+format            = "[$path](yellow) "
+truncation_length = 4
+truncate_to_repo  = true
+
+[git_branch]
+symbol = ""
+format = "[$symbol $branch](red) "
+
+[character]
+success_symbol = "[λ](yellow)"
+error_symbol   = "[λ](red)"
+vimcmd_symbol  = "[λ](yellow)"
+
