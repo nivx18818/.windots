@@ -56,6 +56,7 @@ fc-cache -fv
 ### Awesome fonts
 
 - Maple Mono: https://github.com/subframe7536/maple-font.
+- More nerd fonts: https://github.com/ryanoasis/nerd-fonts.
 
 ## Cursors
 
@@ -67,3 +68,4 @@ Place cursor themes in `/usr/share/icons` then config your DE, WM.
 
 - Bibata: https://github.com/ful1e5/Bibata_Cursor.
 - Google Dot: https://github.com/ful1e5/Google_Cursor.
+- More cursor themes: https://www.gnome-look.org/browse?cat=107&ord=latest.
