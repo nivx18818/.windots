@@ -1,42 +1,29 @@
-_G.Utils = require("nivx.core.utils")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- This is the bootstrap code for lazy.nvim (the plugin manager)
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    error("Error cloning lazy.nvim:\n" .. out)
-  end
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Load core settings before plugins
-require("nivx.core.options")
+local lazy_config = require "zen.conf.lazy"
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  group = vim.api.nvim_create_augroup("CoreConfig", { clear = true }),
-  callback = function()
-    require("nivx.core.keymaps")
-    require("nivx.core.autocmds")
-  end,
-})
+-- Load plugins
+require("lazy").setup("zen.plugins", lazy_config)
 
-require("lazy").setup("nivx.plugins", {
-  defaults = {
-    cond = function(plugin)
-      if vim.g.vscode then
-        return plugin.vscode == true -- only load plugins explicitly marked for vscode
-      end
-      return true
-    end,
-  },
-  ui = {
-    change_detection = {
-      enabled = false,
-      notify = false,
-    },
-  },
-})
+-- Load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "zen.core.options"
+require "zen.core.autocmds"
+
+vim.schedule(function()
+  require "zen.core.keymaps"
+end)
