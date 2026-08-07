@@ -27,3 +27,16 @@ export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$PATH"
 
+# ---------- MISC ----------
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME/npm/config/npm-init.js"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR/npm"
+
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+
+export WINEPREFIX="$XDG_DATA_HOME/wine"
+
+export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
+

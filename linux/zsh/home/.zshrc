@@ -2,7 +2,7 @@
 # History
 # =========================================================
 
-HISTFILE="$XDG_STATE_HOME/zsh/.zhist"
+HISTFILE="$XDG_STATE_HOME/zsh/zhist"
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -39,7 +39,7 @@ eval "$(zoxide init zsh)"
 autoload -Uz compinit
 
 # Initialize completion with cached metadata file
-compinit -d "$XDG_CACHE_HOME/zsh/.zcompdump"
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
 # Enable interactive completion menu selection
 zstyle ':completion:*' menu select
