@@ -10,3 +10,4 @@ linux/noctalia||
 linux/plymouth-themes|/usr/share/plymouth/themes|merge
 linux/zsh/etc|/etc/zsh|copy
 linux/zsh/home|~/.config/zsh|
+shared/nvim||
