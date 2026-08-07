@@ -1,2 +1,2 @@
 # name|type|url
-# E.g. Beekeeper Studio|AppImage|https://github.com/beekeeper-studi/beekeeper-studio/
+Bruno|AppImage|https://www.usebruno.com/downloads
