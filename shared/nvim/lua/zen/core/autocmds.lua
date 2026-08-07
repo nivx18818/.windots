@@ -35,6 +35,12 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("FileType", {
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "o" })
+  end,
+})
+
 usercmd("TSInstallAll", function()
   local spec = require("lazy.core.config").plugins["nvim-treesitter"]
   local opts = type(spec.opts) == "table" and spec.opts or {}
