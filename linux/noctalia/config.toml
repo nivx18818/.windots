@@ -197,7 +197,7 @@ format = "{:%H:%M %a, %b %d}"
 enabled = true
 
 [widget.cpu]
-show_label = false
+show_value = false
 
 [widget.input_volume]
 show_label = false
@@ -212,14 +212,14 @@ show_label = false
 vpn_status = "both"
 
 [widget.ram]
-show_label = false
+show_value = false
 
 [widget.sysmon]
-show_label = false
+show_value = false
 stat = "gpu_usage"
 
 [widget.temp]
-show_label = false
+show_value = false
 
 [widget.tray]
 drawer = true
