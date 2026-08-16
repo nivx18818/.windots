@@ -2,6 +2,7 @@
 # default method: symlink
 #
 # src|dst|method
+linux/btop||
 linux/keyd||
 linux/mangohud|~/.config/MangoHud|
 linux/niri||
