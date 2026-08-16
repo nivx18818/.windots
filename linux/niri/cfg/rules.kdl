@@ -21,6 +21,7 @@ window-rule {
 
 window-rule {
   match app-id="brave"
+  match app-id="zen"
 
   default-column-width {
     proportion 1.0;

@@ -8,8 +8,8 @@ binds {
   // ─── Applications ───
   Mod+Return  { spawn "kitty"; }
   Mod+Space   { spawn-sh "noctalia msg panel-toggle launcher"; }
-  Mod+B       { spawn "brave"; }
-  Mod+Shift+B { spawn "brave" "--incognito"; }
+  Mod+B       { spawn "zen-browser"; }
+  Mod+Shift+B { spawn "zen-browser" "--private-window"; }
   Mod+E       { spawn "nautilus"; }
   Mod+Period  { spawn-sh "noctalia msg panel-toggle launcher '/emo '"; }
   Mod+A       { spawn-sh "noctalia msg panel-toggle launcher '/tr '"; }
