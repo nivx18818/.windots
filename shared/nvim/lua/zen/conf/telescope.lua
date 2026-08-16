@@ -19,6 +19,25 @@ return {
     },
   },
 
+  pickers = {
+    find_files = {
+      find_command = {
+        "fd",
+        "--type", "f",
+        "--hidden",
+        "--no-ignore",
+        "--exclude", ".git",
+        "--exclude", "node_modules",
+        "--exclude", "dist",
+        "--exclude", "build",
+        "--exclude", ".next",
+        "--exclude", ".turbo",
+        "--exclude", "coverage",
+        "--exclude", "plugins",
+      },
+    },
+  },
+
   extensions_list = { "themes", "terms" },
   extensions = {},
 }
