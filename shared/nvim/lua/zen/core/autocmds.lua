@@ -2,6 +2,20 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
 
+if vim.env.KITTY_WINDOW_ID then
+  autocmd("VimEnter", {
+    callback = function()
+      vim.fn.system({ "kitty", "@", "set-spacing", "padding=0" })
+    end,
+  })
+
+  autocmd("VimLeavePre", {
+    callback = function()
+      vim.fn.system({ "kitty", "@", "set-spacing", "padding=default" })
+    end,
+  })
+end
+
 -- User event that loads after UIEnter and only if file buf is there
 autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
