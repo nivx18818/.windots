@@ -21,8 +21,7 @@ alias grep='rg --color=auto'
 alias rg='rg --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
-alias cls="precmd() {precmd() {echo }} && clear"
-
+alias cls="precmd() { precmd() { echo } } && clear"
 
 # Navigation
 # -- prevents - being parsed as a flag; cd - jumps to previous directory
@@ -40,6 +39,7 @@ lf() { # zsh follow lf navigation
 
 # Editor
 alias zed='zeditor'
+alias vi='nvim'
 
 # Git
 alias glog='PAGER="less -F -X" git log'  # -F quit if one screen, -X no clear on exit
@@ -50,11 +50,13 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias stream='mpv av://v4l2:/dev/video4 --fullscreen --demuxer-lavf-o=input_format=mjpeg,framerate=30 --profile=low-latency --untimed'
 
 # Misc
+alias load-fonts='fc-cache -fv'
+
 alias evnup='sudo ipsec restart && sleep 1 && sudo ipsec up evnfc-dc && sudo resolvconf -u'
 alias evndn='sudo ipsec down evnfc-dc'
 
-alias gaming-on='echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo'
-alias gaming-off='echo 0 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo'
+alias turbo-d='echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo'
+alias turbo-e='echo 0 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo'
 
 alias codex-update='curl -fsSL https://chatgpt.com/codex/install.sh | sh'
 alias codex-remote='codex remote-control'

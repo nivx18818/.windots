@@ -10,6 +10,9 @@ ZVM_VI_HIGHLIGHT_BACKGROUND=none
 ZVM_VI_HIGHLIGHT_FOREGROUND=none
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
 
+# Enable system clipboard integration
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
 # zsh-vi-mode resets all bindings on init, so custom bindings
 # must be registered via this hook to survive.
 zvm_after_init() {
@@ -30,3 +33,21 @@ zvm_after_init() {
   bindkey '^[[B' history-substring-search-down
 }
 
+# Allow pasting from system clipboard with `p`/`P`
+_zvm_vi_put_after() {
+  CUTBUFFER="$(wl-paste -n)"
+  zvm_vi_put_after
+}
+
+_zvm_vi_put_before() {
+  CUTBUFFER="$(wl-paste -n)"
+  zvm_vi_put_before
+}
+
+zvm_after_lazy_keybindings() {
+  zvm_define_widget _zvm_vi_put_after
+  zvm_define_widget _zvm_vi_put_before
+
+  zvm_bindkey vicmd 'p' _zvm_vi_put_after
+  zvm_bindkey vicmd 'P' _zvm_vi_put_before
+}

@@ -11,11 +11,21 @@ setfont() {
   echo "Font set to: $value"
 }
 
-conf () {
+_conf() {
+  _files -W "$XDG_CONFIG_HOME" -/
+}
+
+_proj() {
+  _files -W "$HOME/Projects" -/
+}
+
+conf() {
   nvim "$XDG_CONFIG_HOME/$1"
 }
 
-proj () {
+proj() {
   zed "$HOME/Projects/$1"
 }
 
+compdef _conf conf
+compdef _proj proj

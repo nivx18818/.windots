@@ -12,11 +12,10 @@ truncation_length = 4
 truncate_to_repo  = true
 
 [git_branch]
-symbol = ""
+symbol = ""
 format = "[$symbol $branch](red) "
 
 [character]
-success_symbol = "[λ](yellow)"
-error_symbol   = "[λ](red)"
-vimcmd_symbol  = "[λ](yellow)"
-
+success_symbol = "[└── λ](yellow)"
+error_symbol   = "[└── Δ](red)"
+vimcmd_symbol  = "[└── ν](yellow)"
