@@ -1,5 +1,6 @@
 layout {
-  gaps 0 // Gap between windows
+  // Controlled by Theme
+  // gaps 2 // Gap between windows
   center-focused-column "never" // Don’t auto-center focused column
   always-center-single-column
 
@@ -10,21 +11,20 @@ layout {
     proportion 0.66667
     proportion 1.0
   }
-  
+
   default-column-width {
     proportion 0.66667
   }
 
   struts {}
 
-	focus-ring {
-	  off
-	}
+  // Controlled by Theme
+  // focus-ring {
+  //   off
+  // }
 
-	border {
-	  on
-		width 3
-		active-color "#ececec"
-		urgent-color "#ffc799"
-	}
+  // Controlled by Theme
+  // border {
+  //   on
+  // }
 }

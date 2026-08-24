@@ -1,0 +1,18 @@
+layout {
+  gaps 0
+
+  focus-ring {
+    off
+  }
+
+  border {
+    on
+    width 3
+    active-color "#ececec"
+    urgent-color "#ffc799"
+  }
+}
+
+window-rule {
+  geometry-corner-radius 0
+}

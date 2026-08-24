@@ -17,6 +17,17 @@ cursor {
   hide-when-typing
 }
 
+blur {
+    passes 4
+    offset 3
+    noise 0.02
+    saturation 1.5
+}
+
+overview {
+    zoom 0.6
+}
+
 debug {
   // Allows notification actions and window activation from Noctalia
   honor-xdg-activation-with-invalid-serial
@@ -35,4 +46,3 @@ gestures {
     off
   }
 }
-
