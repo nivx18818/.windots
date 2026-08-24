@@ -14,15 +14,61 @@ local sep_l = separators["left"]
 local sep_r = separators["right"]
 
 M.base46 = {
-  theme = "vesper",
+  theme = "everforest",
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
+
+  changed_themes = {
+    everforest = {
+      base_16 = {
+        base00 = "#101010",
+      },
+    },
+  },
 }
 
-M.nvdash = { load_on_startup = true }
+M.nvdash = {
+  load_on_startup = true,
+  header = {
+    "                       ",
+    "                       ",
+    "                       ",
+    "                       ",
+    "                       ",
+    "       [ @ zen ]       ",
+    "                       ",
+    "                       ",
+    "                       ",
+    "                       ",
+    "                       ",
+    "                       ",
+  },
+
+  buttons = {
+    { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
+    { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
+    { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
+    { txt = "󱥚  Themes", keys = "ut", cmd = ":lua require('nvchad.themes').open()" },
+
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+
+    {
+      txt = function()
+        local stats = require("lazy").stats()
+        local ms = math.floor(stats.startuptime) .. " ms"
+        return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+      end,
+      hl = "NvDashFooter",
+      no_gap = true,
+      content = "fit",
+    },
+
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+  },
+}
 
 M.ui = {
   tabufline = {
