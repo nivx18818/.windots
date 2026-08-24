@@ -55,14 +55,24 @@ window-rule {
 }
 
 window-rule {
-  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+  match title="^Picture-in-Picture$"
 
-  default-floating-position x=10 y=10 relative-to="bottom-right"
+  open-floating true
   open-focused false
 }
 
-layer-rule {
-  match namespace="^noctalia-wallpaper*"
+window-rule {
+  match app-id="screen-translator"
 
-  place-within-backdrop true
+  open-floating true
+  open-focused false
+  open-on-output "DP-1"
+  default-floating-position x=10 y=100 relative-to="bottom-left"
 }
+
+// window-rule {
+//   match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+//
+//   default-floating-position x=10 y=10 relative-to="bottom-right"
+//   open-focused false
+// }

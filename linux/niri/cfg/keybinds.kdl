@@ -12,9 +12,11 @@ binds {
   Mod+Shift+B { spawn "zen-browser" "--private-window"; }
   Mod+E       { spawn "nautilus"; }
   Mod+Period  { spawn-sh "noctalia msg panel-toggle launcher '/emo '"; }
-  Mod+A       { spawn-sh "noctalia msg panel-toggle launcher '/tr '"; }
-  Mod+Shift+A { spawn-sh "noctalia msg panel-toggle launcher \"/tr $(noctalia msg clipboard-text)\""; }
+  Mod+A       { spawn-sh "noctalia msg panel-toggle launcher '/tr vi '"; }
+  Mod+Shift+A { spawn-sh "noctalia msg panel-toggle launcher \"/tr vi $(noctalia msg clipboard-text)\""; }
   Mod+V       { spawn-sh "noctalia msg panel-toggle clipboard"; }
+  Super+Grave { spawn-sh "translator translate"; }
+  Super+1     { spawn-sh "translator show-last"; }
 
   // ─── Media Controls ───
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up 2"; }
@@ -26,9 +28,16 @@ binds {
   XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media play"; }
   XF86AudioPause       allow-when-locked=true { spawn-sh "noctalia msg media pause"; }
 
+  Super+WheelScrollUp   allow-when-locked=true { spawn-sh "noctalia msg volume-up 2"; }
+  Super+WheelScrollDown allow-when-locked=true { spawn-sh "noctalia msg volume-down 2"; }
+  Super+MouseMiddle     allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+
   // ─── Brightness Controls ───
   XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up 2"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down 2"; }
+
+  Super+Shift+WheelScrollUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up 2"; }
+  Super+Shift+WheelScrollDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down 2"; }
 
   // ─── Window Movement and Focus ───
   Mod+Q { close-window; }
@@ -119,7 +128,7 @@ binds {
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
   // ─── Exit / Power ───
-  Ctrl+Alt+Delete   { quit; } // Also quits Niri
+  // Ctrl+Alt+Delete   { quit; } // Also quits Niri
   Mod+Shift+P       { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
   Mod+O             repeat=false { toggle-overview; }
   Super+Alt+L       { spawn-sh "noctalia msg session lock"; }
