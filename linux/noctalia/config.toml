@@ -2,26 +2,38 @@
 enable_overdrive = true
 
 [bar.default]
-start = [ "clock", "cpu", "temp", "ram", "media" ]
+capsule_radius = 0
 center = [ "workspaces" ]
-end = [ "audio_visualizer", "tray", "notifications", "battery", "network", "volume", "input_volume", "brightness", "bar" ]
+end = [ "audio_visualizer", "tray", "notifications", "battery", "network", "volume", "brightness", "bar_2" ]
 margin_ends = 0
 padding = 12
 radius = 0
-capsule_radius = 0
 scale = 0.85
 shadow = false
+start = [ "clock", "cpu", "temp", "ram", "media" ]
 thickness = 24
 widget_spacing = 8
 
-[bar.default.dead_zone.actions]
-left = "exec noctalia msg notification-clear-active"
-middle = "exec noctalia msg volume-mute"
-scroll_down = "exec noctalia msg volume-down 2"
-scroll_up = "exec noctalia msg volume-up 2"
+    [bar.default.dead_zone.actions]
+    left = "exec noctalia msg notification-clear-active"
+    middle = "volume-mute"
+    scroll_down = "volume-down 2"
+    scroll_up = "volume-up 2"
 
 [battery]
 warning_threshold = 25
+
+    [battery.device."/org/freedesktop/UPower/devices/keyboard_dev_CA_A1_51_60_60_75"]
+    warning_threshold = 25
+
+    [battery.device."/org/freedesktop/UPower/devices/mouse_dev_C1_35_3B_D0_75_3D"]
+    warning_threshold = 20
+
+    [battery.device."/org/freedesktop/UPower/devices/mouse_dev_C1_35_3B_D0_75_3F"]
+    warning_threshold = 25
+
+    [battery.device."/org/freedesktop/UPower/devices/mouse_dev_C1_35_3B_D0_75_51"]
+    warning_threshold = 25
 
 [brightness]
 sync_all_monitors = true
@@ -29,28 +41,39 @@ sync_all_monitors = true
 [control_center]
 sidebar_section = "none"
 
+    [control_center.calendar]
+    show_events_card = false
+
 [desktop_widgets]
 schema_version = 2
 widget_order = []
 
-[desktop_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[desktop_widgets.widget]
+    [desktop_widgets.widget]
 
 [dock]
 active_monitor_only = true
 auto_hide = true
 background_opacity = 1
-enabled = true
+enabled = false
 icon_size = 24
 launcher_icon = "background"
 launcher_position = "start"
 radius = 0
 reserve_space = false
 shadow = false
+
+[hot_corners]
+delay_ms = 500
+enabled = true
+
+    [hot_corners.top_left]
+    action = "command"
+    command = "niri msg action toggle-overview"
 
 [keybinds]
 down = [ "Down", "Ctrl+n" ]
@@ -62,36 +85,65 @@ up = [ "Up", "Ctrl+p" ]
 address = "Hanoi"
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
 widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
 
-[lockscreen_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-box_height = 201.0
-box_width = 720.0
-cx = 854.0
-cy = 948.0
-output = "DP-1"
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 854.0
+    cy = 948.0
+    enabled = false
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "compact"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_session_buttons = true
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 854.0
+    cy = 948.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = true
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = false
+        show_session_buttons = false
+        show_unlock_hint = false
+        show_weather = false
 
 [nightlight]
 enabled = true
@@ -108,11 +160,14 @@ background_opacity = 1
 border = false
 position = "top_right"
 
+    [osd.kinds]
+    keyboard_layout = false
+
 [plugin_settings."noctalia/translator"]
 target_lang = "vi"
 
 [plugins]
-enabled = [ "noctalia/translator", "noctalia/timer" ]
+enabled = [ "noctalia/translator", "noctalia/timer", "salemsayed/codexbar-meter" ]
 
 [shell]
 app_icon_color = "primary"
@@ -122,53 +177,60 @@ font_family = "Maple Mono"
 polkit_agent = true
 screen_time_enabled = true
 
-[shell.animation]
-speed = 2.0000000298023224
+    [shell.animation]
+    speed = 2
 
-[shell.greeter_sync]
-auto_sync = true
+    [shell.greeter_sync]
+    auto_sync = true
 
-[shell.launcher]
-categories = false
+    [shell.launcher]
+    categories = false
 
-[shell.launcher.providers.emoji]
-prefix = ""
+        [shell.launcher.providers.emoji]
+        prefix = ""
 
-[shell.launcher.providers.session]
-global = true
+        [shell.launcher.providers.session]
+        global = true
 
-[shell.panel]
-clipboard_placement = "floating"
-open_near_click_control_center = true
-shadow = false
+    [shell.panel]
+    clipboard_placement = "floating"
+    open_near_click_control_center = true
+    shadow = false
 
-[shell.shadow]
-alpha = 0.0
+    [shell.screenshot]
+    remember_last_region = true
+    save_to_file = false
+
+    [shell.session]
+    show_shortcuts = false
+
+    [shell.shadow]
+    alpha = 0.0
 
 [theme]
-builtin = "Kanagawa"
+builtin = "Noctalia"
 community_palette = "Vesper"
 source = "community"
 
-[theme.templates]
-builtin_ids = [ "btop" ]
+    [theme.templates]
+    builtin_ids = []
 
 [wallpaper]
 edge_smoothness = 0.0
 transition = [ "disc" ]
 transition_on_startup = true
 
-[wallpaper.default]
-path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+    [wallpaper.default]
+    path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
 
-[wallpaper.last]
-path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+    [wallpaper.last]
+    path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
 
-[wallpaper.monitors.DP-1]
-path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+    [wallpaper.monitors.DP-1]
+    path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
 
-[wallpaper.monitors.eDP-1]
-path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
+    [wallpaper.monitors.eDP-1]
+    path = "/home/zen/Pictures/Wallpapers/tori-gate.jpg"
 
 [weather]
 enabled = false
@@ -181,17 +243,21 @@ mirrored = false
 show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
 
+[widget.bar_2]
+type = "salemsayed/codexbar-meter:bar"
+
 [widget.battery]
 show_label = false
 
 [widget.brightness]
 show_label = false
 
-[widget.brightness.actions]
-scroll_down = "brightness-down 2%"
+    [widget.brightness.actions]
+    scroll_down = "brightness-down 2%"
+    scroll_up = "brightness-up 2%"
 
 [widget.clock]
-format = "{:%H:%M %a, %b %d}"
+format = "{:%H %M %u %d %m %y}"
 
 [widget.control-center]
 enabled = true
@@ -226,6 +292,10 @@ drawer = true
 
 [widget.volume]
 show_label = false
+
+    [widget.volume.actions]
+    scroll_down = "volume-down 2"
+    scroll_up = "volume-up 2"
 
 [widget.workspaces]
 empty_color = "on_primary"
