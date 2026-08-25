@@ -25,19 +25,19 @@ if [ -f "$THEME_DIR/niri.kdl" ]; then
 fi
 
 # noctalia
-if [ -f "$THEME_DIR/noctalia/config.toml" ]; then
+if [ -f "$THEME_DIR/noctalia.toml" ]; then
     // Remove Noctalia config state file to avoid config overriding
     // This file is safe to remove
     rm -f $XDG_STATE_HOME/settings.toml
     echo "-> Updating noctalia config..."
-    ln -sf "$BASE_DIR/$THEME_DIR/noctalia/config.toml" "$BASE_DIR/noctalia/config.toml"
+    ln -sf "$BASE_DIR/$THEME_DIR/noctalia.toml" "$BASE_DIR/noctalia/config.toml"
 fi
 
 # noctalia custom palette
-if [ -f "$THEME_DIR/noctalia/palette.json" ]; then
+if [ -f "$THEME_DIR/noctalia.json" ]; then
     echo "-> Updating noctalia custom palette..."
     mkdir -p "$BASE_DIR/noctalia/palettes"
-    ln -sf "$BASE_DIR/$THEME_DIR/noctalia/palette.json" "$BASE_DIR/noctalia/palettes/custom.json"
+    ln -sf "$BASE_DIR/$THEME_DIR/noctalia.json" "$BASE_DIR/noctalia/palettes/custom.json"
 fi
 
 # kitty
